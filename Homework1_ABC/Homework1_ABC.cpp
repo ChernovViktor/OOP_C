@@ -6,6 +6,7 @@
 
 using namespace std;
 
+double arr[4] = {};
 class Point 
 {
 	double x;
@@ -97,7 +98,7 @@ void distance_to_point(Point& A, Point& B, Point& C)
 		}
 	
 }
-void distance_between_point(Point& A, Point& B, Point& C, double* arr)
+void distance_between_point(Point& A, Point& B, Point& C)
 {
 	Show_ABC(A,B,C);
 	cout << "Выберите первую букву (нажмите 'a', 'b' или 'c')\n";
@@ -105,21 +106,21 @@ void distance_between_point(Point& A, Point& B, Point& C, double* arr)
 	{
 	  case 'a':
 	  {
-		  arr[0] = A.get_x;
-		  arr[1] = A.get_y;
+		  arr[0] = A.get_x();
+		  arr[1] = A.get_y();
 		  cout << "Выберите вторую букву (нажмите 'b' или 'c')\n";
 		  switch (_getch())
 		  {
 		  case 'b':
 		  {
-			  arr[2] = B.get_x;
-			  arr[3] = B.get_y;
+			  arr[2] = B.get_x();
+			  arr[3] = B.get_y();
 			  break;
 		  }
 		  case 'c':
 		  {
-			  arr[2] = C.get_x;
-			  arr[3] = C.get_y;
+			  arr[2] = C.get_x();
+			  arr[3] = C.get_y();
 			  break;
 		  }
 		  }
@@ -127,21 +128,21 @@ void distance_between_point(Point& A, Point& B, Point& C, double* arr)
 	  }
 	  case 'b':
 	  {
-		  arr[0] = B.get_x;
-		  arr[1] = B.get_y;
+		  arr[0] = B.get_x();
+		  arr[1] = B.get_y();
 		  cout << "Выберите вторую букву (нажмите 'a' или 'c')\n";
 		  switch (_getch())
 		  {
 		  case 'a':
 		  {
-			  arr[2] = A.get_x;
-			  arr[3] = A.get_y;
+			  arr[2] = A.get_x();
+			  arr[3] = A.get_y();
 			  break;
 		  }
 		  case 'c':
 		  {
-			  arr[2] = C.get_x;
-			  arr[3] = C.get_y;
+			  arr[2] = C.get_x();
+			  arr[3] = C.get_y();
 			  break;
 		  }
 		  }
@@ -149,21 +150,21 @@ void distance_between_point(Point& A, Point& B, Point& C, double* arr)
 	  }
 	  case 'c':
 	  {
-		  arr[0] = C.get_x;
-		  arr[1] = C.get_y;
+		  arr[0] = C.get_x();
+		  arr[1] = C.get_y();
 		  cout << "Выберите вторую букву (нажмите 'a' или 'b')\n";
 		  switch (_getch())
 		  {
 		  case 'a':
 		  {
-			  arr[2] = A.get_x;
-			  arr[3] = A.get_y;
+			  arr[2] = A.get_x();
+			  arr[3] = A.get_y();
 			  break;
 		  }
 		  case 'b':
 		  {
-			  arr[2] = B.get_x;
-			  arr[3] = B.get_y;
+			  arr[2] = B.get_x();
+			  arr[3] = B.get_y();
 			  break;
 		  }
 		  }
@@ -194,10 +195,8 @@ int main()
 	}
 	case '2':
 	{
-		double arr[4] = {};
-		distance_between_point(A, B, C, arr);
-		cout << "Расстояние между точками = " << (sqrt(pow(, 2) + pow(y, 2)));
-		abs(arr[0]) + abs(arr[2])
+		distance_between_point(A, B, C);
+		cout << "Расстояние между точками = " << (sqrt(pow(abs(arr[2]-arr[0]), 2) + pow(abs(arr[3] - arr[1]), 2)));
 	}
 	}
 }
