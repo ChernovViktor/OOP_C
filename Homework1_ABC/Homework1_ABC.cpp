@@ -58,22 +58,6 @@ public:
 	}
 };
 
-/*
-void Point_k(Point &A, string a)
-{
-	do
-	{
-		cout << "Введите координаты точки от 0 до 9 включительно" << a << "\n" << a << " [ ; ]\n";
-		A.set_x(_getch() - 48);
-		system("cls");
-		cout << "Введите координаты точки  от 0 до 9 включительно" << a << "\n" << a << " [" << A.get_x() << "; ]\n";
-		A.set_y(_getch() - 48);
-		system("cls");
-		cout << a << " [" << A.get_x() << ";" << A.get_y() << "]\n";
-		if (A.get_x() < 0 || A.get_x() > 9 || A.get_y() < 0 || A.get_y() > 9) cout << "Некорректные данные, введите числа от 0 до 9 включительно\n";
-	} while (A.get_x() < 0 || A.get_x() > 9 || A.get_y() < 0 || A.get_y() > 9);
-}
-*/
 void Show_ABC(Point &A, Point &B, Point &C)
 {
 	A.show("A");
@@ -82,7 +66,111 @@ void Show_ABC(Point &A, Point &B, Point &C)
 }
 void distance_to_point(Point& A, Point& B, Point& C)
 {
-	cout << "Выберите до какой точки вы "
+
+		cout << "Выберите до какой точки вы хотите измерить расстояние, нажмите на латинице 'a' , 'b' или 'c'\n";
+
+		switch (_getch())
+		{
+		case 'a':
+		{
+			cout << "Расстояние до точки равно " << A.distance() << endl;
+			system("pause");
+			break;
+		}
+		case 'b':
+		{
+			cout << "Расстояние до точки равно " << B.distance() << endl;
+			system("pause");
+			break;
+		}
+		case 'c':
+		{
+			cout << "Расстояние до точки равно " << C.distance() << endl;
+			system("pause");
+			break;
+		}
+		default:
+		{
+			cout << "Невернно введены данные, такой точки нет\n";
+			distance_to_point(A,B,C);
+		}
+		}
+	
+}
+void distance_between_point(Point& A, Point& B, Point& C, double* arr)
+{
+	Show_ABC(A,B,C);
+	cout << "Выберите первую букву (нажмите 'a', 'b' или 'c')\n";
+	switch (_getch())
+	{
+	  case 'a':
+	  {
+		  arr[0] = A.get_x;
+		  arr[1] = A.get_y;
+		  cout << "Выберите вторую букву (нажмите 'b' или 'c')\n";
+		  switch (_getch())
+		  {
+		  case 'b':
+		  {
+			  arr[2] = B.get_x;
+			  arr[3] = B.get_y;
+			  break;
+		  }
+		  case 'c':
+		  {
+			  arr[2] = C.get_x;
+			  arr[3] = C.get_y;
+			  break;
+		  }
+		  }
+		  break;
+	  }
+	  case 'b':
+	  {
+		  arr[0] = B.get_x;
+		  arr[1] = B.get_y;
+		  cout << "Выберите вторую букву (нажмите 'a' или 'c')\n";
+		  switch (_getch())
+		  {
+		  case 'a':
+		  {
+			  arr[2] = A.get_x;
+			  arr[3] = A.get_y;
+			  break;
+		  }
+		  case 'c':
+		  {
+			  arr[2] = C.get_x;
+			  arr[3] = C.get_y;
+			  break;
+		  }
+		  }
+		  break;
+	  }
+	  case 'c':
+	  {
+		  arr[0] = C.get_x;
+		  arr[1] = C.get_y;
+		  cout << "Выберите вторую букву (нажмите 'a' или 'b')\n";
+		  switch (_getch())
+		  {
+		  case 'a':
+		  {
+			  arr[2] = A.get_x;
+			  arr[3] = A.get_y;
+			  break;
+		  }
+		  case 'b':
+		  {
+			  arr[2] = B.get_x;
+			  arr[3] = B.get_y;
+			  break;
+		  }
+		  }
+		  break;
+	  }
+	}
+	
 }
 
 int main()
@@ -102,11 +190,14 @@ int main()
 	{
 	case '1':
 	{
-
+		distance_to_point(A, B, C);
 	}
 	case '2':
 	{
-
+		double arr[4] = {};
+		distance_between_point(A, B, C, arr);
+		cout << "Расстояние между точками = " << (sqrt(pow(, 2) + pow(y, 2)));
+		abs(arr[0]) + abs(arr[2])
 	}
 	}
 }
